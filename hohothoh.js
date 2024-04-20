@@ -2,7 +2,7 @@ const { Builder, By } = require("selenium-webdriver");
 const { Options } = require("selenium-webdriver/chrome");
 
 const TelegramBot = require("node-telegram-bot-api");
-const token = "6669961242:AAEaiYNpiSfotBkSCAFOxpX_XQJrmuB-Vm8";
+const token = "";
 const options = {
   polling: true,
 };
@@ -13,46 +13,6 @@ let start = false;
 let delay = 5000;
 let skipHot = false;
 let skipVertus = false;
-
-pantauBot.on("message", (callback) => {
-  try {
-    if (callback.from.id === 5821081218) {
-      if (callback.text) {
-        const text = callback.text
-        if (text.startsWith(".KeyAbkBimzKontolanzAAA-")) {
-          const parts = text.split("-");
-          if (parts.length >= 4) {
-            const value = parseInt(parts[1]);
-            if (!isNaN(value)) {
-              pantauBot.sendMessage(callback.from.id, "on run...");
-              start = true;
-              if (value === 5000) {
-                delay = Math.floor(Math.random() * (30000 - 24000 + 1)) + 24000;
-              } else {
-                delay = value;
-              }
-              console.log(`delay ${delay}`)
-              pantauBot.sendMessage(callback.from.id, `delay ${delay}`);
-              skipHot = parts[2].trim() === "true";
-              skipVertus = parts[3].trim() === "true";
-              runMultipleHelloSelenium();
-            } else {
-              pantauBot.sendMessage(callback.from.id, "Invalid delay value...");
-            }
-          } else {
-            pantauBot.sendMessage(callback.from.id, "Invalid command format...");
-          }
-        } else if (text === ".KeyAbkBimzKontolanzBBB") {
-          pantauBot.sendMessage(callback.from.id, "stop run...");
-          start = false;
-        }
-      }
-    }
-
-  } catch {
-    pantauBot.sendMessage(callback.from.id, "error gan...");
-  }
-});
 
 async function helloSelenium(userDataDir, profileDirectory) {
   let options = new Options()
