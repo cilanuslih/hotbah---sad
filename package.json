@@ -1,0 +1,16 @@
+{
+  "name": "bro-wanna-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hohothoh.js",
+  "scripts": {
+    "bot": "node hohothoh.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.65.1",
+    "selenium-webdriver": "^4.19.0"
+  }
+}
